@@ -23,7 +23,7 @@ import { Searchd } from './Station_Discussion/Searchd';
 import { getcookie } from './Helper/cookie';
 import Home from './Home/Home';
 import { useState } from 'react';
-
+import GroupPage from './components/GroupPage/Index';
 
 
 
@@ -55,7 +55,7 @@ function App() {
         <Route path="/MyStationDashboard" element={<MyStationDashboard/>}/>
         <Route path="/Profile" element={<Profile/>}/>
         <Route path="/Associate" element={<AllAssociates/>}/>
-     
+        <Route path="/GroupPage" element={<GroupPage/>}/>     
         <Route path="/login" element={<Login setuser={setuser}/>}/>        
       </Routes>
     </Router>
