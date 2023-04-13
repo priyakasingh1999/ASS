@@ -10,8 +10,8 @@ function CircularProgressWithLabel(
   props: CircularProgressProps & { value: number },
 ) {
   return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-      <CircularProgress variant="determinate" {...props}/>
+     <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+      <CircularProgress variant="determinate" {...props} />
       <Box
         sx={{
           top: 0,
@@ -22,27 +22,42 @@ function CircularProgressWithLabel(
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-        //   border:'5px solid #fff',
-        //   borderRadius:'50%',
+          border:"4px solid #fff",
+          borderRadius:"50%",
+          zIndex:0,
+          opacity:.5,
         }}
       >
         <Typography
           variant="caption"
           component="div"
-          color="#fff"
-          fontSize="16px"
-          fontWeight="bold"
+          color="text.Primary"
+          sx={{opacity:4,zIndex:99}}
         >{`${Math.round(props.value)}`}</Typography>
       </Box>
     </Box>
   );
 }
 
-export default function Progress({data}) {
- let k=   +(data)
-  const [progress, setProgress] = React.useState(k);
+export default function Progress({ data }) {
+  const [progress, setProgress] = React.useState(10);
+  
 
- 
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((prevProgress) => (prevProgress >= 10 ? 10 : prevProgress + 1));
+    }, 800);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
-  return <CircularProgressWithLabel value={progress} />;
+  return <CircularProgressWithLabel value={progress}  sx={{zIndex:999}}/>;
+
+  // let k = +(data)
+  // const [progress, setProgress] = React.useState(k);
+
+
+
+  // return <CircularProgressWithLabel value={progress} />;
 }

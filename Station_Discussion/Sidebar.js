@@ -9,6 +9,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import { addcommentreply, getcommentbyreply } from '../Api/Discussion/Discussion';
+import Formbox from './Formbox';
 
 const Sidebar = ({thirdcomment, setthirdcomment,sidebardata}) => {
   const[contentreply,setcontentreply]=useState('')
@@ -17,10 +18,11 @@ const Sidebar = ({thirdcomment, setthirdcomment,sidebardata}) => {
   const{user_id,session_id,id,updated_at,img,users,content
 
 
-
-
     
   }=sidebardata
+  const[replypages,setreplypage]=useState(false)
+
+
 console.log(reply,"this");
   useEffect(()=>{
    
@@ -34,13 +36,27 @@ console.log(reply,"this");
 const Commentside=(e)=>{
   setsucess('')
   e.preventDefault()
-  alert(contentreply)
+
+
+  
   addcommentreply(session_id,id,contentreply).then((data)=>{
   setsucess(data.messege)
 
   })
 
+ 
+
 }
+let replyopen=(e,id)=>{
+ let s= e.target.getAttribute("name");
+ alert(id)
+ setreplypage(id)
+ 
+ 
+
+  
+}
+
   return (
 <>
               <Box
@@ -139,6 +155,7 @@ const Commentside=(e)=>{
                {
                 reply.length>0 && reply.map((redata,index)=>{
                    const{users}= redata
+                   console.log("form ke lia",redata);
                   return(
                     <Stack direction="row" spacing={1} key={index}>
                    {users &&    <Avatar alt="Remy Sharp"  src={`https://assoc.studiomyraa.com/public/uploads/images/${users[0].image}`} />
@@ -154,6 +171,7 @@ const Commentside=(e)=>{
                        {users && users[0].name}
                       </Typography>
                       <Typography
+                      name={id}
                         variant="subtitle2"
                         sx={{
                           color: "#1688ca",
@@ -163,14 +181,30 @@ const Commentside=(e)=>{
                             textDecorationColor: "#1688ca",
                           },
                         }}
+                    onClick={(e)=>{
+                      replyopen(
+                           e,redata.id
+                            )
+                         
+                        }
+
+                       }
                       >
-                        Reply
+                        Reply 
                       </Typography>
+                     
+                    {  replypages===redata.id &&
+                        <Formbox  comment_id={redata.comment_id} id={replypages} setreplypage={setreplypage}/>
+                    }
+                
                     </Stack>
+                  
                   </Stack>
+
                   )
                 })
                }
+            
               </Box>
               </>
   )

@@ -37,7 +37,7 @@ const MyStationp = ({ stationFile }) => {
   console.log(sessionform);
 
   const [show, setIsShown] = useState("");
-  const [option, setOption] = useState(false);
+  const [option, setOption] = useState(true);
   const [form, setForm] = useState(false);
   const [width, setwidth] = useState(6);
   const [showid,setshowid] = useState(1);
@@ -89,7 +89,7 @@ allStationdata().then((data)=>{
             <p>
               <span
                 onClick={() => {
-                  setOption(!option);
+                  setOption(option);
                 }}
               >
                 Options

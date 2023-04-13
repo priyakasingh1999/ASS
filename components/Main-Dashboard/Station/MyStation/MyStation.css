@@ -563,12 +563,7 @@ object-fit: cover;
     max-width: 70px;
     max-height: 70px;
 }
-.MuiCircularProgress-root.MuiCircularProgress-determinate.MuiCircularProgress-colorPrimary.css-1rn30mb-MuiCircularProgress-root{
-    width: 60px !important;
-    height: 60px !important;
-    border: 7px solid #fff;
-    border-radius: 50%;
-}
+
 @media (min-width: 1200px){
 .css-17p3wh3-MuiGrid-root {
     -webkit-flex-basis: 88.333333%;

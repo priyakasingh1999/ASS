@@ -1,8 +1,14 @@
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { getcookie } from "../../Helper/cookie";
 import { getlocalstore } from "../../Helper/localsStroage";
+import { Authuser } from "../Context/Auth";
 import "./Header.css"
-function NavigationNav() {
-  let {image}= getlocalstore('login')
-
+function NavigationNav({user}) {
+  
+ const{ auser}= useContext(Authuser)
+console.log(user,"header");
+console.log(auser,"contect wala hai");
 
   return (
     <header>
@@ -329,7 +335,7 @@ function NavigationNav() {
           </li> */}
           <li className="nav-item my-auto line">
             <a className="nav-link" aria-current="page" href="#">
-              <img src="img/company_logo.png" className="img-fluid" />
+              <img src={`https://assoc.studiomyraa.com/public/uploads/images/${user.image}`} className="img-fluid" />
             </a>
           </li>
           <li className="nav-item my-auto line dropdown">
@@ -342,8 +348,7 @@ function NavigationNav() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <img src={`https://assoc.studiomyraa.com/public/uploads/images/${image}`} className="img-fluid me-1" />
-            </a>
+                 </a>
             <ul className="dropdown-menu" aria-labelledby="John-dropdown">
               <li>
                 <a href="#">Video Demo</a>

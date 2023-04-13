@@ -1,5 +1,5 @@
 import { height, Stack, width } from "@mui/system";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import zIndex from "@mui/material/styles/zIndex";
@@ -21,6 +21,7 @@ import { getcookie, setcookie } from "../../Helper/cookie";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { setlocalstore } from "../../Helper/localsStroage";
+import { Authuser } from "../Context/Auth";
 
 
 const Imgsize = createGlobalStyle
@@ -35,8 +36,10 @@ const Imgsize = createGlobalStyle
     background-size:cover;
 }
 `;
-const Login = () => {
+const Login = ({setuser}) => {
   let navigate = useNavigate();
+     const {auser,setauser}=useContext(Authuser)
+   
   const[Username,setUsername]=useState('')
   const[Password,setPassword]=useState(null)
   const handlelogin=(e)=>{
@@ -46,10 +49,15 @@ const Login = () => {
   data.then((d)=>{
    const {token,role,user,message}=d.data
    console.log(user);
+   setuser(user)
+  setauser(user)
    if(token,user){
 setcookie('login',token)
 setlocalstore('login',user)
+
+
    }
+  
    navigate("/MyStationDashboard", { replace: true });
  
 

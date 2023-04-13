@@ -20,24 +20,30 @@ import Count from './components/Context/Count';
 import { Checking } from './components/Testing/Checking';
 import Discussrecent from './Station_Discussion/Discussrecent';
 import { Searchd } from './Station_Discussion/Searchd';
+import { getcookie } from './Helper/cookie';
+import Home from './Home/Home';
+import { useState } from 'react';
+
 
 
 
 
 function App() {
   
-  
-  
+
+  const[user,setuser]=useState(false)
+  console.log(user,"app wale hais");
   
   return (
  <div>
 
     {/* <TextStyle/> */}
-   <Header/>  
+   <Header user={user}/>  
  
  
     <Router>
       <Routes>
+      <Route  path="/" element={<Home/>}/>
         <Route path="/admin" element={<Admin/>}/>
         <Route path="/admin/pages" element={<Pages/>}/>
         <Route path="/admin/Stations" element={<Allgroups/>}/>
@@ -49,7 +55,8 @@ function App() {
         <Route path="/MyStationDashboard" element={<MyStationDashboard/>}/>
         <Route path="/Profile" element={<Profile/>}/>
         <Route path="/Associate" element={<AllAssociates/>}/>
-        <Route path="/login" element={<Login/>}/>        
+     
+        <Route path="/login" element={<Login setuser={setuser}/>}/>        
       </Routes>
     </Router>
  </div>

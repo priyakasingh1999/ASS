@@ -90,3 +90,54 @@ var requestOptions = {
   
   .catch(error => console.log('error', error));
  }
+
+ export const replytoreply=(comment_id,reply_id,data)=>{
+  let cookie= Cookies.get('login')
+  
+  var myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Authorization", `Bearer ${cookie}`);
+
+var formdata = new FormData();
+formdata.append("comment_id", comment_id);
+formdata.append("reply_id", reply_id);
+formdata.append("content", data);
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: formdata,
+  redirect: 'follow'
+};
+
+ return fetch("https://assoc.studiomyraa.com/api/reply_to_reply", requestOptions)
+  
+  .then((result)=>{
+    return result.json()
+  })
+  .catch(error => console.log('error', error));
+  
+ }
+ export const getreplydata=(id)=>{
+  let cookie= Cookies.get('login')
+  var myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Authorization", `Bearer ${cookie}`);
+
+
+
+
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+
+  redirect: 'follow'
+};
+
+ return fetch(`https://assoc.studiomyraa.com/api/get_reply_to_reply/${id}`, requestOptions)
+ .then((result) => {
+  return result.json()
+ })
+ .catch(error => console.log('error', error));
+ }
