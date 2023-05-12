@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import StationData from './StationData'
 
 const Station = () => {
+  const [savedata , setSavedData]=useState(StationData)
+  const [ showcontent , setShowContent]=useState(false)
+  const [saveid , setSaveId]= useState("")
+
+  const ShowContent = (id)=>{
+    if(id){
+      alert(id)
+    }
+  }
+
+
+
   return (
     <div>
       <section className="All-Stations py-5">
@@ -16,529 +29,68 @@ const Station = () => {
           <div className='my-auto'>
             <h5 className="m-0">
             All Stations
-              {/* <input type="text" placeholder="All Stations" className="rounded-pill bg-white border-0 w-100 form-control text-center"/> */}
+             
             </h5>
           </div>
           <div className="add-btn">
-            {" "}
-            <p>+</p>{" "}
+            <p>+</p>
           </div>
         </div>
       </div>
     </div>
 
     <div className="row bg-white pt-1">
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations1.jpg" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content">
-            <div>
-              <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">BioMedical</p>
-              <p>6 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  4 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
+      {
+        savedata.map((data)=>{
+          const {id,imgUrl} = data
+          return(
+            <div className="col-sm-6 col-md-4" key={id}>
+             
+            <div className="Stations">
+            {
+                showcontent &&
+                <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50% , -50%)"}}>
+                 <div className='bg-danger p-5'>
+                 <h1 className='text-white'>Hello</h1>
+                  </div>
                 </div>
-                <p className="fw-bold my-auto">Join </p>
+              }
+              <div className="img">
+                <img src={imgUrl} className="img-fluid w-100" />
+                <div className="overlay" />
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations2.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Community</p>
-              <p>38 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  2 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
+              <div className="Stations-content">
+                <div>
+                  <div className="add-btn mx-auto mb-1">
+                    <i className="fa fa-close" />
+                  </div>
+                  <p className="fs-13 m-0">BioMedical</p>
+                  <p>6 Members</p>
                 </div>
-                <p className="fw-bold my-auto">Join </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations3.jpg" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Employee Engagement</p>
-              <p>7 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  2 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
+              <div className="post-content">
+                <div>
+                  <div className="fw-bold">
+                    <p>
+                      4 <span>New Post</span>
+                    </p>
+                  </div>
+                  <div className="d-flex gap-2">
+                    <div className="add-btn">
+                      
+                      <p onClick={()=>{setShowContent(id,saveid)}} >+</p>
+                    </div>
+                    <p className="fw-bold my-auto">Join </p>
+                  </div>
                 </div>
-                <p className="fw-bold my-auto">Join </p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div className="row bg-white">
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Finance</p>
-              <p>1 Members</p>
-            </div>
-          </div>
-          
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  0 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Hospital Safety</p>
-              <p>13 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  3 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Hospital Safety</p>
-              <p>13 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  3 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div className="row bg-white">
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Finance</p>
-              <p>1 Members</p>
-            </div>
-          </div>
-          
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  0 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Hospital Safety</p>
-              <p>13 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  3 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Hospital Safety</p>
-              <p>13 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  3 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div className="row bg-white">
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Finance</p>
-              <p>1 Members</p>
-            </div>
-          </div>
-          
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  0 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Hospital Safety</p>
-              <p>13 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  3 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Hospital Safety</p>
-              <p>13 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  3 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div className="row bg-white pb-1">
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Finance</p>
-              <p>1 Members</p>
-            </div>
-          </div>
-          
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  0 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Hospital Safety</p>
-              <p>13 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  3 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="Stations">
-          <div className="img">
-            <img src="img/stations4.png" className="img-fluid" />
-            <div className="overlay" />
-          </div>
-          <div className="Stations-content w-100">
-            <div>
-            <div className="add-btn mx-auto mb-1">
-                <i className="fa fa-close" />
-              </div>
-              <p className="fs-13 m-0">Hospital Safety</p>
-              <p>13 Members</p>
-            </div>
-          </div>
-          <div className="post-content">
-            <div>
-              <div className="fw-bold">
-                <p>
-                  3 <span>New Post</span>
-                </p>
-              </div>
-              <div className="d-flex gap-2">
-                <div className="add-btn">
-                  {" "}
-                  <p>+</p>{" "}
-                </div>
-                <p className="fw-bold my-auto">Join </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          )
+        })
+      }
+     
+     
     </div>
   </div>
 </section>

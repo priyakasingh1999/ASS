@@ -44,7 +44,7 @@ const stylesave=(e)=>{
   return (
     <Container>
       <Row className="justify-content-start optionalPhoto_Box">
-        <Col md={8}>
+        <Col md={9}>
           <Box className="optionalPhoto mb-2">
             <Box className="" >
               <AddCircleOutlineIcon onClick={()=>SetStyleOpen(true)} />
@@ -249,7 +249,7 @@ const stylesave=(e)=>{
               }
             </Box>
             <Box>
-              <p>Optional: Add Station name overlaid on photo</p>
+              <Typography sx={{fontSize:{xs:"13px"}}}>Optional: Add Station name overlaid on photo</Typography>
             </Box>
           </Box>
         </Col>

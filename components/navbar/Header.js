@@ -1,339 +1,133 @@
-import { getlocalstore } from "../../Helper/localsStroage";
-import "./Header.css"
-function NavigationNav() {
-  let {image}= getlocalstore('login')
+import React, { useContext, useState } from "react";
+import { Authuser } from "../Context/Auth";
+import "./Header.css";
+import { Avatar, Typography,Collapse } from "@mui/material";
+import logo from "../../img/logo.png";
+import userImg from "../../img/header-station.png";
+import userImg2 from "../../img/header-edit-station.png";
+import userImg3 from "../.././img/john.jpg";
+import { Clickcontaxt } from "../Context/DropdownData";
+import NavDropDown from "./NavDropDown";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
+function NavigationNav({ user }) {
+  const [dropopen , setDropopen] = useState(false)
+  const { setNotifficationOpen,setColorOpen ,setAssociate} =
+    useContext(Clickcontaxt);
+
+  const { auser } = useContext(Authuser);
+  console.log(user, "header");
+  console.log(auser, "contect wala hai");
 
   return (
-    <header>
-  <nav className="navbar navbar-expand-lg navbar-light bg-white">
-    <div className="container">
-      <li className="navbar-brand nav-item dropdown my-auto d-flex gap-2">
-        <div className="d-flex gap-2">
-          <div className="img">
-            <img src="img/logo.png" className="img-fluid pe-2" />
-          </div>
-          <div className="name my-auto py-auto">
-            <p className="my-auto">Programs</p>
-          </div>
-        </div>
-        <a
-          className="h_dropdown"
-          href="#"
-          id="navbarDropdown"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <div className="dropdown-toggle" />
-        </a>
-        <ul className="dropdown-menu line" aria-labelledby="navbarDropdown">
-          <li>
-            <div>
-              <a href="#">
-                <img src="img/associates.png" className="img-fluid" />
-              </a>
-              <a className="dropdown-item" href="#">
-                Associates
-              </a>
-            </div>
-            <div className="count">
-              <span>1</span>
-            </div>
-          </li>
-          <li>
-            <div>
-              <a href="#">
-                <img src="img/stations.png" className="img-fluid" />
-              </a>
-              <a className="dropdown-item" href="#">
-                Station Sessions
-              </a>
-            </div>
-            <div className="count">
-              <span>19</span>
-              <span>54</span>
-            </div>
-          </li>
-          <li>
-            <div>
-              <a href="#">
-                <img src="img/workstation.png" className="img-fluid" />
-              </a>
-              <a className="dropdown-item" href="#">
-                Stations
-              </a>
-            </div>
-            <div className="count">
-              <span>21</span>
-            </div>
-          </li>
-          <li>
-            <div>
-              <a href="#">
-                <img src="img/stationborad.png" className="img-fluid" />
-              </a>
-              <a className="dropdown-item" href="#">
-                Project Boards
-              </a>
-            </div>
-          </li>
-          <li>
-            <div>
-              <a href="#">
-                <img src="img/emails.png" className="img-fluid" />
-              </a>
-              <a className="dropdown-item" href="#">
-                Emails
-              </a>
-            </div>
-            <div className="count">
-              <span>237</span>
-            </div>
-          </li>
-          <li>
-            <div>
-              <a href="#">
-                <img src="img/projecttask.png" className="img-fluid" />
-              </a>
-              <a className="dropdown-item" href="#">
-                Project Tasks
-              </a>
-            </div>
-          </li>
-        </ul>
-      </li>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-        
-          <li className="nav-item line my-auto">
-            <a
-              className="nav-link active "
-              aria-current="page"
-              href="#"
-            >
-              <p className="rounded-pill m-0">Sign up  for <br/> Free Trial Now</p>
-            </a>
-          </li>
-          <li className="nav-item my-auto line">
-            <a className="nav-link ps-0 pe-0" aria-current="page" href="#" >
-              <img src="img/header-station.png" className="img-fluid p-2" />
-            </a>
-          </li>
-          <li className="nav-item my-auto line">
-            <a className="nav-link ps-0" aria-current="page" href="#">
-              <img src="img/header-edit-station.png" className="img-fluid p-2" />
-            </a>
-          </li>
-          {/* <li className="nav-item my-auto line ms-0 my-auto dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              aria-current="page"
-              href="#"
-              id="sign-dropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            />
-            <div
-              className="dropdown-menu sign bg-white w-100"
-              aria-labelledby="sign-dropdown"
-            >
-              <form>
-                <table className="w-100">
-                  <tbody>
-                    <tr>
-                      <th>S.No</th>
-                      <th>Remove From Main Page </th>
-                      <th>Restore</th>
-                      <th>Remove</th>
-                    </tr>
-                    <tr className="odd">
-                      <td>1</td>
-                      <td>Voice Files</td>
-                      <td>
-                        <input type="radio" name="voice" />
-                      </td>
-                      <td>
-                        <input type="radio" name="voice" />
-                      </td>
-                    </tr>
-                    <tr className="even">
-                      <td>2</td>
-                      <td>Quick View</td>
-                      <td>
-                        <input type="radio" name="Quick" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Quick" />
-                      </td>
-                  </tr>
-                    <tr className="odd">
-                      <td>3</td>
-                      <td>Hide Notification</td>
-                      <td>
-                        <input type="radio" name="Hide Notification" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Hide Notification" />
-                      </td>
-                    </tr>
-                    <tr className="even">
-                      <td>4</td>
-                      <td>Silence audible station notifications</td>
-                      <td>
-                        <input type="radio" name="hide" />
-                      </td>
-                      <td>
-                        <input type="radio" name="hide" />
-                      </td>
-                    </tr>
-                    <tr className="odd">
-                      <td>5</td>
-                      <td>Text Messages</td>
-                      <td>
-                        <input type="radio" name="text" />
-                      </td>
-                      <td>
-                        <input type="radio" name="text" />
-                      </td>
-                    </tr>
-                    <tr className="even">
-                      <td>6</td>
-                      <td>Reminders</td>
-                      <td>
-                        <input type="radio" name="Reminders" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Reminders" />
-                      </td>
-                    </tr>
-                    <tr className="odd">
-                      <td>7</td>
-                      <td>Recent Videos</td>
-                      <td>
-                        <input type="radio" name="Recent Videos" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Recent Videos" />
-                      </td>
-                    </tr>
-                    <tr className="even">
-                      <td>8</td>
-                      <td>Recent Photos</td>
-                      <td>
-                        <input type="radio" name="Recent Photos" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Recent Photos" />
-                      </td>
-                    </tr>
-                    <tr className="odd">
-                      <td>9</td>
-                      <td>New Mail</td>
-                      <td>
-                        <input type="radio" name="New Mail" />
-                      </td>
-                      <td>
-                        <input type="radio" name="New Mail" />
-                      </td>
-                    </tr>
-                    <tr className="even">
-                      <td>10</td>
-                      <td>Network Videos</td>
-                      <td>
-                        <input type="radio" name="Network Videos" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Network Videos" />
-                      </td>
-                    </tr>
-                    <tr className="odd">
-                      <td>11</td>
-                      <td>Network Logs</td>
-                      <td>
-                        <input type="radio" name="Network Logs" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Network Logs" />
-                      </td>
-                    </tr>
-                    <tr className="even">
-                      <td>12</td>
-                      <td>Network Documents</td>
-                      <td>
-                        <input type="radio" name="Network Documents" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Network Documents" />
-                      </td>
-                    </tr>
-                    <tr className="odd">
-                      <td>13</td>
-                      <td>Network Alerts</td>
-                      <td>
-                        <input type="radio" name="Network Alerts" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Network Alerts" />
-                      </td>
-                    </tr>
-                    <tr className="even">
-                      <td>14</td>
-                      <td>Message Board</td>
-                      <td>
-                        <input type="radio" name="Message Board" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Message Board" />
-                      </td>
-                    </tr>
-                    <tr className="odd">
-                      <td>15</td>
-                      <td>Discussions</td>
-                      <td>
-                        <input type="radio" name="Discussions" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Discussions" />
-                      </td>
-                    </tr>
-                    <tr className="even">
-                      <td>16</td>
-                      <td>Calendar</td>
-                      <td>
-                        <input type="radio" name="Calendar" />
-                      </td>
-                      <td>
-                        <input type="radio" name="Calendar" />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div className="mt-3 text-center submit-btn">
-                  <input type="submit" defaultValue="Submit" />
+    <div style={{ position: "relative" }}>
+      <header>
+        <nav className="navbar navbar-expand-lg navbar-light bg-white">
+          <div className="container">
+            <li className="navbar-brand nav-item dropdown my-auto d-flex gap-2">
+              <div className="d-flex gap-2 align-item-center">
+                <div className="img">
+                  <img src={logo} className="img-fluid pe-2" />
                 </div>
-              </form>
-            </div>
-          </li> */}
-          <li className="nav-item my-auto line">
-            <a className="nav-link" aria-current="page" href="#">
-              <img src="img/company_logo.png" className="img-fluid" />
-            </a>
-          </li>
-          <li className="nav-item my-auto line dropdown">
-            <a
+                <div className="name my-auto py-auto">
+                  <p className="my-auto">Programs</p>
+                </div>
+
+                <div>
+                  <ArrowDropDownIcon sx={{color:"#0561a5",fontSize:"30px"}} onClick={()=>{setDropopen(!dropopen)}} />
+                </div>
+        
+                
+             
+              </div>
+
+              
+               
+             { dropopen &&
+             
+              <div>
+              <NavDropDown setDropopen={setDropopen} dropopen={dropopen}/>
+              </div>
+              
+           
+             }
+            </li>
+            <button
+              className="navbar-toggler my-2"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon " />
+            </button>
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav ms-auto align-items-center">
+                <li className="nav-item">
+                  <a className="nav-link active " aria-current="page" href="#">
+                    <Avatar
+                      variant="rounded"
+                      className="bg-blue p-1"
+                      sx={{ width: { xs: "65px", md: "100px", lg: "110px" } }}
+                    >
+                      <Typography
+                        sx={{ fontSize: { xs: "8px", md: "10px", lg: "13px" } }}
+                        color="#fff"
+                      >
+                        Sign up for <br /> Free Trial Now
+                      </Typography>
+                    </Avatar>
+                  </a>
+                </li>
+                <li className="nav-item ">
+                  <a className="nav-link" aria-current="page" href="#">
+                    <Avatar
+                      sx={{
+                        width: { xs: "15px", md: "22px" },
+                        height: { xs: "15px", md: "22px" },
+                      }}
+                      src={userImg}
+                    />
+                  </a>
+                </li>
+                <li className="nav-item line">
+                  <a className="nav-link" aria-current="page" href="#">
+                    <Avatar
+                      sx={{
+                        width: { xs: "15px", md: "22px" },
+                        height: { xs: "15px", md: "22px" },
+                      }}
+                      src={userImg2}
+                    />
+                  </a>
+                </li>
+                <li className="nav-item line ">
+                  <a className="nav-link" aria-current="page" href="#">
+                    <Avatar
+                      sx={{
+                        width: { xs: "30px", sm: "40px" },
+                        height: { xs: "30px", sm: "40px" },
+                      }}
+                      src={userImg3}
+                    />
+                  </a>
+                </li>
+                <li className="nav-item line dropdown">
+                  <a
+                    className="nav-link dropdown-toggle"
+                    aria-current="page"
+                    href="#"
+                    id="John-dropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  ></a>
+                  {/* <Avatar sx={{bgcolor:"transparent",width:"22px",height:"22px"}}> <a
               className="nav-link dropdown-toggle"
               aria-current="page"
               href="#"
@@ -342,65 +136,85 @@ function NavigationNav() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <img src={`https://assoc.studiomyraa.com/public/uploads/images/${image}`} className="img-fluid me-1" />
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="John-dropdown">
-              <li>
-                <a href="#">Video Demo</a>
-              </li>
-              <li>
-                <a href="#">PPT Tutorial</a>
-              </li>
-              <li>
-                <a href="#">Add / Create Blog</a>
-              </li>
-              <li>
-                <a href="#">My Profile</a>
-              </li>
-              <li>
-                <a href="#">Invite Associates</a>
-              </li>
-              <li>
-                <a href="#">Admin Access</a>
-              </li>
-              <li>
-                <a href="#">Add New User</a>
-              </li>
-              <li>
-                <a href="#">Color Selection</a>
-              </li>
-              <li>
-                <a href="#">Logout</a>
-              </li>
-            </ul>
-          </li>
-          <li className="nav-item my-auto line px-2">
-            <a className="nav-link home" aria-current="page" href="#">
-              <i className="fa fa-home" />
-            </a>
-          </li>
-          <li className="nav-item my-auto">
-            <a className="nav-link lh-0" aria-current="page" href="#">
-              <i className="fa fa-question-circle" />
-            </a>
-          </li>
-          {/* <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                 </a></Avatar> */}
+                  <ul
+                    className="dropdown-menu mt-3 bg-blue"
+                    aria-labelledby="John-dropdown"
+                  >
+                    <li>
+                      <a href="/createwiki">Add / Create Articles</a>
+                    </li>
+                    <li>
+                      <a href="/Profile">My Profile</a>
+                    </li>
+                    <li>
+                      <a href="/inviteassociates">Invite Associates</a>
+                    </li>
+                    <li>
+                      <a href="/admin">Admin Access</a>
+                    </li>
+                    <li>
+                      <a href="/add-new-user">Add New User</a>
+                    </li>
+                    <li>
+                      {/* <a href="/colorselection">Color Selection</a> */}
+                      <p style={{cursor:"pointer",color:"#fff",fontSize:"14px"}}
+                        onClick={() => {
+                          setColorOpen(true);
+                        }}
+                      >
+                        Color Selection
+                      </p>
+                    </li>
+                    <li>
+                      {/* <a href="/notification">Notifications</a> */}
+                      <p style={{cursor:"pointer" ,color:"#fff",fontSize:"14px"}}
+                        onClick={() => {
+                          {
+                            setNotifficationOpen(true);
+                          }
+                        }}
+                      >
+                        Notifications
+                      </p>
+                    </li>
+                    <li>
+                      <a href="#">Logout</a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="nav-item line">
+                  <a className="nav-link home" aria-current="page" href="#">
+                    <Avatar
+                      sx={{
+                        bgcolor: "transparent",
+                        width: { xs: "30px", md: "40px" },
+                        height: { xs: "30px", md: "40px" },
+                      }}
+                    >
+                      <i className="fa fa-home" />
+                    </Avatar>
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" aria-current="page" href="#">
+                    <Avatar
+                      sx={{
+                        bgcolor: "transparent",
+                        width: "40px",
+                        height: "40px",
+                      }}
+                    >
+                      <i className="fa fa-question-circle" />
+                    </Avatar>
+                  </a>
+                </li>
               </ul>
-            </li> */}
-        </ul>
-      </div>
+            </div>
+          </div>
+        </nav>
+      </header>
     </div>
-  </nav>
-</header>
-
   );
 }
 

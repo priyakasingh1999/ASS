@@ -2,6 +2,7 @@ import React from 'react'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { Box } from '@mui/system';
 import Col from 'react-bootstrap/Col';
+import {Typography} from '@mui/material'
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
@@ -17,7 +18,7 @@ const ChooseColor = () => {
               <AddCircleOutlineIcon/>
             </Box>
             <Box>
-              <p>Choose color for the badge if no photo is used</p>
+            <Typography sx={{fontSize:{xs:"13px"}}}>Choose color for the badge if no photo is used</Typography>
             </Box>
           </Box>
         </Col>

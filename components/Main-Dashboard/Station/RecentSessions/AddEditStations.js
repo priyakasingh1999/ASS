@@ -16,6 +16,8 @@ const AddEditStation = ()=>{
           </Popover.Body>
         </Popover>
       );
+
+      const cusdata = [{id:1,id:2,id:3,id:4}]
       
    
       const [form, setForm] = useState(false);
@@ -37,13 +39,13 @@ const AddEditStation = ()=>{
                     </Row>
 
                     <Row className="align-items-center mb-2 ">
-                    <Col md={4}>
+                    <Col md={4} xs={12}>
                     <Form.Control type="text" placeholder="Search" />
                     </Col> 
-                    <Col md={4}>
-                        <p className="mb-0 text-center">CURRENT STATIONS</p>
+                    <Col md={4} xs={12}>
+                        <p className="mb-0 text-center my-2 my-lg-0">CURRENT STATIONS</p>
                     </Col> 
-                    <Col md={4}>
+                    <Col md={4} xs={12}>
                         <div className="d-flex align-items-center justify-content-center">
                             <p className="mb-0 fs-14 me-2">Create New Stations</p>
                             <img src="img/plus.png" className="global_icon_size" alt=""  onClick={() => {
@@ -53,48 +55,48 @@ const AddEditStation = ()=>{
                     </Col> 
                     </Row>
                 
-                    <Row className="gray_bg pt-1 pb-1">
-                        <Col md={3}>
+                    <Row className="gray_bg pt-1 pb-1 " >
+                        <div className="d-flex justify-content-between align-items-center flex-wrap">
+                        
                         <div className="d-flex align-items-center">
                             <p className="mb-0 fs-14 me-2">Favorites</p>
-                            <img src="img/plus_w.png" className="global_icon_size" alt="" onClick={()=>{
+                            <img src="img/plus_w.png" className="Edit_global_icon_size img-fluid" alt="" onClick={()=>{
                                 alert("Please check off Priority Box on Station")
                             }} />
                         </div>
 
-                         
-                        </Col>
-                        <Col md={1}>
+                        <div>
                             <p className="mb-0 fs-14">Alerts</p>
-                        </Col>
-                        <Col md={3}>
+                        </div>
+                        <div>
                         <p className="mb-0 fs-14">Actions</p>
-                        </Col>
-                        <Col md={1}>
+                        </div>
+                        <div>
                         <p className="mb-0 fs-14">Edit</p>
-                        </Col>
-                        <Col md={1}>
+                        </div>
+                        <div>
                         <p className="mb-0 fs-14">Status</p>
-                        </Col>
-                        <Col md={1}>
-                        <p className="mb-0 fs-14">Station</p></Col>
-                        <Col md={2}>
-                        <p className="mb-0 fs-14">Logo</p></Col>
+                        </div>
+                        <div>
+                        <p className="mb-0 fs-14">Station</p></div>
+                        <div>
+                        <p className="mb-0 fs-14">Logo</p></div>
+                        </div>
                     </Row>
 
                     <Row className="pt-1 pb-1 align-items-center">
-                        <Col md={3}>
+                        <Col md={3} xs={10}>
                          
 
-                        <p className="mb-0">Direct Session</p>
+                        <p className="mb-0 center_small">Direct Session</p>
                         </Col>
-                        <Col md={1}>
-                            <div className="text-center">
+                        <Col md={1} xs={2}>
+                            <div className="text-center mt-2 mt-lg-0">
                                 <span className="red_badge">0</span>
                             </div>
                         </Col>
-                        <Col md={3}>
-                            <ul className="mb-0 ps-0 d-flex align-items-center justify-content-center station_action">
+                        <Col md={3} xs={12}>
+                            <ul className="mb-0 ps-0 my-2 my-lg-0 d-flex align-items-center justify-content-lg-center station_action justify-content-around">
                                 <li>
                                 <OverlayTrigger
                                         delay={{ show: 250, hide:300 }}
@@ -174,22 +176,22 @@ const AddEditStation = ()=>{
                                 </li>
                             </ul>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                             <img src="img/plus_w.png" alt="" className="global_icon_size" />
                             </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                             <img src="img/plus_w.png" alt="" className="global_icon_size" />
                             </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                                 <div className="text-center">
                                 <img src="img/plus_w.png" alt="" className="global_icon_size" />
                                 </div>
                         </Col>
-                        <Col md={2}>
+                        <Col md={2} xs={6} className="mt-2 mt-lg-0">
                         <p className="mb-0 fs-14">
                         <div className="recent_session_logo">
                         <OverlayTrigger  trigger={["hover", "hover"]} placement="left" overlay={popover}>
@@ -203,7 +205,7 @@ const AddEditStation = ()=>{
                     </Row> 
 
                     <Row className="pt-1 pb-1 align-items-center">
-                        <Col md={3}>
+                        <Col md={3} xs={10} className="mt-1 mt-lg-0">
                          
 
                         <div className="d-flex align-items-center">
@@ -211,13 +213,13 @@ const AddEditStation = ()=>{
                         <label htmlFor=""><a href="" className="text-decoration-none"> BioMedical</a></label>
                         </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                                 <span className="red_badge">0</span>
                             </div>
                         </Col>
                         <Col md={3}>
-                            <ul className="mb-0 ps-0 d-flex align-items-center justify-content-center station_action">
+                            <ul className="mb-0 ps-0 d-flex align-items-center justify-content-lg-center station_action justify-content-around mt-2 mt-lg-0">
                                 <li>
                                 <OverlayTrigger
                                         delay={{ show: 250, hide:300 }}
@@ -297,22 +299,22 @@ const AddEditStation = ()=>{
                                 </li>
                             </ul>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                             <img src="img/plus_w.png" alt="" className="global_icon_size" />
                             </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                             <img src="img/plus_w.png" alt="" className="global_icon_size" />
                             </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                                 <div className="text-center">
                                 <img src="img/plus_w.png" alt="" className="global_icon_size" />
                                 </div>
                         </Col>
-                        <Col md={2}>
+                        <Col md={2} xs={6} className="mt-2 mt-lg-0">
                         <p className="mb-0 fs-14">
                         <div className="recent_session_logo">
                         <OverlayTrigger  trigger={["hover", "hover"]} placement="left" overlay={popover}>
@@ -324,8 +326,9 @@ const AddEditStation = ()=>{
                         
                         </Col>
                     </Row>
+                    
                     <Row className="pt-1 pb-1 align-items-center">
-                        <Col md={3}>
+                        <Col md={3} xs={10} className="mt-1 mt-lg-0">
                          
 
                         <div className="d-flex align-items-center">
@@ -333,13 +336,13 @@ const AddEditStation = ()=>{
                         <label htmlFor=""><a href="" className="text-decoration-none"> BioMedical</a></label>
                         </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                                 <span className="red_badge">0</span>
                             </div>
                         </Col>
                         <Col md={3}>
-                            <ul className="mb-0 ps-0 d-flex align-items-center justify-content-center station_action">
+                            <ul className="mb-0 ps-0 d-flex align-items-center justify-content-lg-center station_action justify-content-around mt-2 mt-lg-0">
                                 <li>
                                 <OverlayTrigger
                                         delay={{ show: 250, hide:300 }}
@@ -419,22 +422,22 @@ const AddEditStation = ()=>{
                                 </li>
                             </ul>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                             <img src="img/plus_w.png" alt="" className="global_icon_size" />
                             </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                             <img src="img/plus_w.png" alt="" className="global_icon_size" />
                             </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                                 <div className="text-center">
                                 <img src="img/plus_w.png" alt="" className="global_icon_size" />
                                 </div>
                         </Col>
-                        <Col md={2}>
+                        <Col md={2} xs={6} className="mt-2 mt-lg-0">
                         <p className="mb-0 fs-14">
                         <div className="recent_session_logo">
                         <OverlayTrigger  trigger={["hover", "hover"]} placement="left" overlay={popover}>
@@ -446,8 +449,9 @@ const AddEditStation = ()=>{
                         
                         </Col>
                     </Row>
+
                     <Row className="pt-1 pb-1 align-items-center">
-                        <Col md={3}>
+                        <Col md={3} xs={10} className="mt-1 mt-lg-0">
                          
 
                         <div className="d-flex align-items-center">
@@ -455,13 +459,13 @@ const AddEditStation = ()=>{
                         <label htmlFor=""><a href="" className="text-decoration-none"> BioMedical</a></label>
                         </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                                 <span className="red_badge">0</span>
                             </div>
                         </Col>
                         <Col md={3}>
-                            <ul className="mb-0 ps-0 d-flex align-items-center justify-content-center station_action">
+                            <ul className="mb-0 ps-0 d-flex align-items-center justify-content-lg-center station_action justify-content-around mt-2 mt-lg-0">
                                 <li>
                                 <OverlayTrigger
                                         delay={{ show: 250, hide:300 }}
@@ -541,22 +545,22 @@ const AddEditStation = ()=>{
                                 </li>
                             </ul>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                             <img src="img/plus_w.png" alt="" className="global_icon_size" />
                             </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                             <img src="img/plus_w.png" alt="" className="global_icon_size" />
                             </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                                 <div className="text-center">
                                 <img src="img/plus_w.png" alt="" className="global_icon_size" />
                                 </div>
                         </Col>
-                        <Col md={2}>
+                        <Col md={2} xs={6} className="mt-2 mt-lg-0">
                         <p className="mb-0 fs-14">
                         <div className="recent_session_logo">
                         <OverlayTrigger  trigger={["hover", "hover"]} placement="left" overlay={popover}>
@@ -568,8 +572,9 @@ const AddEditStation = ()=>{
                         
                         </Col>
                     </Row>
+
                     <Row className="pt-1 pb-1 align-items-center">
-                        <Col md={3}>
+                        <Col md={3} xs={10} className="mt-1 mt-lg-0">
                          
 
                         <div className="d-flex align-items-center">
@@ -577,13 +582,13 @@ const AddEditStation = ()=>{
                         <label htmlFor=""><a href="" className="text-decoration-none"> BioMedical</a></label>
                         </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                                 <span className="red_badge">0</span>
                             </div>
                         </Col>
                         <Col md={3}>
-                            <ul className="mb-0 ps-0 d-flex align-items-center justify-content-center station_action">
+                            <ul className="mb-0 ps-0 d-flex align-items-center justify-content-lg-center station_action justify-content-around mt-2 mt-lg-0">
                                 <li>
                                 <OverlayTrigger
                                         delay={{ show: 250, hide:300 }}
@@ -663,22 +668,22 @@ const AddEditStation = ()=>{
                                 </li>
                             </ul>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                             <img src="img/plus_w.png" alt="" className="global_icon_size" />
                             </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                             <div className="text-center">
                             <img src="img/plus_w.png" alt="" className="global_icon_size" />
                             </div>
                         </Col>
-                        <Col md={1}>
+                        <Col md={1} xs={2}>
                                 <div className="text-center">
                                 <img src="img/plus_w.png" alt="" className="global_icon_size" />
                                 </div>
                         </Col>
-                        <Col md={2}>
+                        <Col md={2} xs={6} className="mt-2 mt-lg-0">
                         <p className="mb-0 fs-14">
                         <div className="recent_session_logo">
                         <OverlayTrigger  trigger={["hover", "hover"]} placement="left" overlay={popover}>

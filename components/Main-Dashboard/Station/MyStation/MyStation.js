@@ -17,8 +17,14 @@ import Tooltip from '@mui/material/Tooltip';
 import StationFiles from "./StationFiles";
 import Leadership from "./Leadership";
 import { Icon } from "../../../Context/Sideicon";
+import ColorSelection from "../../../../NewUser/ColorSelection";
+import { Clickcontaxt } from "../../../Context/DropdownData";
+
 
 const MyStation = () => {
+
+  const{notifiopen , setNotifficationOpen , coloropen , setColorOpen} = useContext(Clickcontaxt)
+
   const { iconaction,seticonaction } = useContext(Icon)
   console.log(iconaction);
   const{event, showiconsubheader,countvalue}=iconaction
@@ -59,18 +65,29 @@ seticonaction({...iconaction, actionstationfile: setchangestation, stationfile:c
 console.log(width)
  }
   return (
-    <Container className="my-3">
+    <Container className="mt-3 mb-0">
+      { notifiopen &&
+        <div style={{position:"fixed",top:"10%",left:0,bottom:0,bgcolor:"#000",zIndex:"999999",height:"600px"}}>
+          {/* <h1>Priyanka</h1> */}
+          {/* <Notifications/> */}
+        </div>
+      }
+      { coloropen &&
+        <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50% , -50%)"}}>
+          <ColorSelection/>
+        </div>
+      }
       {form && <MyStationForm setForm={setForm} form={form} />}
-      <Row>
-        <Col md={6}>
+      <Row >
+        <Col xl={8} sm={12} className="position-relative">
         {currentstation && <AddEditStation currentStation={currentStation} currentstation={!currentstation} /> }
         </Col>
       </Row>
-      <Row>
-        <Col md={8} >
+      <Row className="position-relative">
+      <Col xl={8} sm={12} className="mb-3 mb-xl-0" >
           <RecentSessions />
         </Col>
-        <Col md={4} className="ps-0">
+        <Col xl={4} sm={12} className="ps-lg-0">
       
           <div>
             <div className="Station-head">
@@ -113,7 +130,7 @@ console.log(width)
                  
                     <a>
                         {  showiconsubheader &&  
-                  stationFile?<Tooltip title="Back to Huddle"><img src="./img/station-icon2.png" onClick={()=>{
+                  stationFile?<Tooltip title="Back to Huddle"><img src="./img/MyStations.svg" onClick={()=>{
                     setchangestation(false)
                     setStationFile(!stationFile)
                    }}/></Tooltip>:  <Tooltip title="Back to Station"><img src="./img/Huddle.svg" onClick={()=>{

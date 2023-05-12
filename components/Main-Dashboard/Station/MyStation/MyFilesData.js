@@ -1,3 +1,4 @@
+import Checkbox from '@mui/material/Checkbox';
 const MyFilesData = [
     {
         id:1,
@@ -5,7 +6,8 @@ const MyFilesData = [
         title:"Added by System Administrator",
         time:"28 Apr 2020 @ 01:13 pm, 76.46 KB",
         filename:"Bi-plane",
-        stationname:"BioMedical"
+        stationname:"BioMedical",
+        add:<Checkbox size="small" />
     },
     {
         id:2,
@@ -13,7 +15,8 @@ const MyFilesData = [
         title:"Added by Eric Link",
         time:"28 Apr 2020 @ 03:02 pm, 50.14 KB",
         filename:"Open house",
-        stationname:"BioMedical"
+        stationname:"BioMedical",
+        add:<Checkbox size="small" />
     },
     {
         id:3,
@@ -21,7 +24,8 @@ const MyFilesData = [
         title:"Added by Sue Karng",
         time:"16 Apr 2018 @ 06:12 pm, 52.35 KB",
         filename:"",
-        stationname:"Information Technology"
+        stationname:"Information Technology",
+        add:<Checkbox size="small" />
     },
     {
         id:4,
@@ -29,7 +33,8 @@ const MyFilesData = [
         title:"Added by Jim Smith",
         time:"16 Apr 2018 @ 06:16 pm, 11.15 KB",
         filename:"Permit",
-        stationname:"Information Technology"
+        stationname:"Information Technology",
+        add:<Checkbox size="small" />
     },
     {
         id:5,
@@ -37,7 +42,8 @@ const MyFilesData = [
         title:"Added by John S Smith",
         time:"16 Apr 2018 @ 06:14 pm, 86.87 KB",
         filename:"Training Manual",
-        stationname:"Information Technology"
+        stationname:"Information Technology",
+        add:<Checkbox size="small" />
     },
     {
         id:6,
@@ -45,7 +51,8 @@ const MyFilesData = [
         title:"Added by Jim Smith",
         time:"08 Feb 2018 @ 05:55 pm, 57.08 KB",
         filename:"",
-        stationname:"Information Technology"
+        stationname:"Information Technology",
+        add:<Checkbox size="small" />
     },
     {
         id:7,
@@ -53,7 +60,8 @@ const MyFilesData = [
         title:"Added by Jim Smith",
         time:"08 Feb 2018 @ 05:52 pm, 52.35 KB",
         filename:"",
-        stationname:"Information Technology"
+        stationname:"Information Technology",
+        add:<Checkbox size="small" />
     },
     {
         id:8,
@@ -61,7 +69,8 @@ const MyFilesData = [
         title:"08 Feb 2018 @ 05:51 pm, 57.08 KB",
         time:"28 Apr 2020 @ 01:13 pm, 76.46 KB",
         filename:"",
-        stationname:"Information Technology"
+        stationname:"Information Technology",
+        add:<Checkbox size="small" />
     },
     {
         id:9,
@@ -69,7 +78,8 @@ const MyFilesData = [
         title:"Added by Eric Link",
         time:"03 Feb 2018 @ 06:31 pm, 63.49 KB",
         filename:"",
-        stationname:"Human Resources"
+        stationname:"Human Resources",
+        add:<Checkbox size="small" />
     },
     {
         id:10,
@@ -77,7 +87,8 @@ const MyFilesData = [
         title:"Added by System Administrator",
         time:"20 Jan 2018 @ 01:20 pm, 56.36 KB",
         filename:"",
-        stationname:"BioMedical"
+        stationname:"BioMedical",
+        add:<Checkbox size="small" />
     },
     {
         id:11,
@@ -85,7 +96,8 @@ const MyFilesData = [
         title:"Added by Joe Smith",
         time:"20 Jan 2018 @ 02:52 pm, 29.71 KB",
         filename:"Training manual",
-        stationname:"BioMedical"
+        stationname:"BioMedical",
+        add:<Checkbox size="small" />
     }
 ]
 export default MyFilesData;

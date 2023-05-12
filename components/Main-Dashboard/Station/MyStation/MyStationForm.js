@@ -14,7 +14,10 @@ import ChooseColor from "./FormPages/ChooseColor";
 import {Stationform } from '../../../Context/Stationform'
 import axios from 'axios';
 import { stationform } from "../../../../Api/Mystationform";
-function StationForm() {
+import {Typography,Modal} from '@mui/material'
+
+
+function StationForm({setForm , form}) {
   const {formvalue , setformvalue} = useContext(Stationform);
  
   const [showA, setShowA] = useState(true);
@@ -41,12 +44,16 @@ function StationForm() {
     let dataofform=stationform (formvalue)
   dataofform.then((s)=>{
    
-alert(`${s.messege} was saved`)
+    if(s){
+      alert(`${s.messege} was saved`)
+    }
 
   })
 
   }
   const [value, setValue] = useState(0);
+
+  const [openfile , setOpenFile]=useState(false)
 
   const [htext, sethtext] = useState([
     "Admin Dashboard",
@@ -59,25 +66,26 @@ alert(`${s.messege} was saved`)
   ]);
   
   return (
-    <div container className="stationform w-100">
-      <Row className="justify-content-center">
-        <Col md={6} className="mb-2 text-center p-2">
+    <Modal
+        open={()=>{setForm(true)}}
+        onClose={()=>{setForm(false)}}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description"
+      >
+    <div className="stationform" style={{minWidth:"600px",zIndex:"9999999"}}>
+      
           <Toast
             show={showA}
             onClose={toggleShowA}
-            className="w-100 bg-white text-white addStationForm"
+            className="w-100 bg-white text-white addStationForm text-center"
           >
-            <Toast.Header className="stationName bg-blue text-white">
-              <img
-                src="holder.js/20x20?text=%20"
-                className="rounded me-2"
-                alt=""
-              />
-              <strong className="me-auto fs-17">{htext[value]}</strong>
+            <Toast.Header className="stationName bg-blue text-white justify-content-between">
+              <Typography sx={{fontSize:{xs:"14px",lg:"16px"},textAlign:"left !important"}} color="#fff">{htext[value]}</Typography>
+              {/* <strong className="me-auto fs-17"></strong> */}
             </Toast.Header>
             <Toast.Body>
               <Form>
-                {slider[value]}
+                <div className="mb-3">{slider[value]}</div>
                 {value > 0 && value <= 6 && (
                   <Button
                     variant="primary"
@@ -116,9 +124,9 @@ alert(`${s.messege} was saved`)
               </Form>
             </Toast.Body>
           </Toast>
-        </Col>
-      </Row>
+        
     </div>
+    </Modal>
   );
 }
 

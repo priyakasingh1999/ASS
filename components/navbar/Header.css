@@ -38,7 +38,7 @@ h6 {
 a {
 	-webkit-transition: all 0.4s ease !important;
 	transition: all 0.4s ease !important;
-	text-decoration: none !important;
+	text-decoration: none;
 }
 
 ul {
@@ -85,7 +85,7 @@ button:focus {
     width: 38% !important;
 }
 .bg-blue{
-    background-color: #1688ca;
+    background-color: #1688ca !important;
 }
 .btn-primary{
 	background-color: #1688ca !important;
@@ -101,6 +101,7 @@ button:focus {
 .text-left{
 	text-align: left !important;
 }
+
 
 /* ======================used fonts====================== */
 
@@ -147,10 +148,6 @@ button:focus {
 	color: #fff;
 }
 
-.fs-13 {
-	font-size: 14px;
-}
-
 .fs-11 {
 	font-size: 11px;
 }
@@ -183,6 +180,7 @@ header{
 .navbar{
 	padding: 0px;
 	min-height: 45px;
+	box-shadow: rgb(0 0 0 / 15%) 0px 1px 1px;
 	
 }
 header .name{
@@ -204,19 +202,41 @@ header .img-fluid{
 	font-weight: bold;
 	color: #0f78bb !important;
 }
+
 .dropdown-menu{
-	width: 100%;
+	max-width: 300px;
 	border-radius:unset;
-	top: 100%;
+	top:0;
+	left:0;
 	background-color: #188dce;
-	/* background-color: #fff; */
+	background-color: #fff;
 	box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+	position: absolute !important;
+	border: none !important;
+	padding: 0px !important;
+	z-index: 9999;
+	margin-top: 20px !important;
+}
+.cusDropdown .dropdown-menu{
+	margin-top: 0px !important;
+	max-width: 300px;
+	border-radius:unset;
+	top:0;
+	left:0;
+	background-color: transparent;
+	box-shadow: unset;
+	position: relative !important;
+	border: none !important;
+	padding: 0px !important;
 }
 .dropdown-menu[data-bs-popper] {
     top: 100%;
     left: 0;
     margin-top: 0;
 	border-radius: 0px 0px 0.25rem 0.25rem;
+}
+.bg-trans{
+	background-color: transparent !important;
 }
 .dropdown-menu li{
 	display: flex;
@@ -267,6 +287,12 @@ header .img-fluid{
 }
 .collapse .dropdown-menu{
 	margin-top: 0.5rem;
+}
+.count{
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
 }
 .count span{
 	color: #fff;
@@ -386,7 +412,6 @@ th{
 }
 
 table , tr , td, th{
-	border: 1px solid grey;
 	border-collapse: collapse;
 }
 .odd{
@@ -462,12 +487,121 @@ td{
 	/* max-width: 50px !important; */
 }
 /* Dashboard Section Css Exit  */
+ul.navbar-nav li.nav-item{
+	display: inline-block;
+}
+.line::after{
+	position: absolute;
+	border-right: 1px solid #0663a7;
+}
+.collapse{
+	padding: 10px 0;
+	transition: all .4;
+}
+@media (max-width:1200px){
+	.dashboard-menu ul li {
+		width: calc(16.6% - 15px);
+	}
+}
 
+@media (max-width:992px){
+	ul.navbar-nav li.nav-item{
+		margin: 5px 0px !important;
+	}
+	header .img-fluid {
+		max-width: 113px;
+	}
+	.navbar-nav{
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.collapse.show{
+		background-color: #1688ca3d;
+		padding: 10px 0;
+		transition: all .4;
+	}
+	.navbar .container{
+		padding: 0;
+	}
+	.navbar-brand{
+		padding-left: 12px;
+	}
+	button.navbar-toggler{
+		margin-right: 12px !important;
+	}
+	.navbar-nav .dropdown-menu {
+		position: absolute;
+		left: -42px !important;
+		top: 100% !important;
+		margin-top: 25px;
+	}
+	.dropdown-menu{
+		width: unset;
+	}
+	.dashboard-menu ul li {
+		width: calc(20% - 15px);
+	}
+}
+@media (max-width:768px){
+	.dashboard-menu ul li {
+		width: calc(25% - 15px);
+	}
+}
+@media (max-width:500px){
+	.dashboard-menu ul li {
+		width: calc(33.3% - 15px);
+	}
+}
+@media (max-width:400px){
+	.dashboard-menu ul li {
+		width: calc(50% - 15px);
+	}
+}
+@media (max-width:300px){
+	
+	header .img-fluid {
+		max-width: 100px;
+	}
+	header .name {
+		font-size: 7px;
+		letter-spacing: 0px;
+	}
+	.dashboard-menu ul li {
+		width: calc(100% - 15px);
+	}
+	
+}
+@media (max-width:600px){
+	.home{
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 27px;
+		width: 27px;
+		background-color: #0663a7;
+	}
+	.fa-home{
+		font-size: 20px !important;
+		color: #fff;
+	}
+	.navbar-nav .dropdown-menu {
+		left: -64px !important;
+	}
+}
 
 /* Stations css start */
 @media (min-width: 1200px){
 	.All-Stations .container, .container-lg, .container-md, .container-sm, .container-xl {
 		max-width: 800px;
+	}
+	.huddle_search_btn {
+		right: 3px !important;
+		top: 3% !important;
+		position: absolute !important;
+		left: auto;
+		display: flex;
+		justify-content: end;
 	}
 	}
 .All-Stations a{
@@ -598,3 +732,11 @@ td{
 	background-color: #fff;
 }
 /* station page css end  */
+
+
+.css-11qr2p8-MuiButtonBase-root-MuiButton-root{
+	background-color: #1688ca !important;
+}
+.css-11qr2p8-MuiButtonBase-root-MuiButton-root:hover{
+	background-color: #1688cae8 !important;
+}

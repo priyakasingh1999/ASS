@@ -10,7 +10,8 @@ import { Box } from "@mui/system";
 import CloseIcon from '@mui/icons-material/Close';
 
 import {Stationform } from '../../../../Context/Stationform'
-const AddAssociates = () => {
+
+const AddAssociates = ({fontsize,minWidth,onClick}) => {
   const {formvalue , setformvalue} = useContext(Stationform );
   const { Associate}=formvalue
   console.log(formvalue);
@@ -80,17 +81,20 @@ const AddAssociates = () => {
 
   
 
+  
+
   return (
     <Form.Group className="mb-3 pks" controlId="formBasicEmail">
-      <div className="d-flex justify-content-between align-items-center">
-        <Form.Label className="fw-bold text-dark">Search By Name:</Form.Label>
+      <div className="d-lg-flex justify-content-between gap-lg-1 align-items-center ">
+        
+        <Form.Label className="fw-bold text-dark w_full text-left mb-1 mb-lg-0" style={{minWidth:`${minWidth}`,fontSize:`${fontsize}`}}>Search By Name:</Form.Label>
 
         <div className="add_associates">
           <Form.Control
             type="text"
             placeholder="Search Associate "
             value={search}
-            className="py-2 input-btn"
+            className="input-btn"
             onChange={(e) => {
               e.preventDefault();
               const { name, value } = e.target;
@@ -126,12 +130,14 @@ const AddAssociates = () => {
           )}
         </div>
 
-        <Form.Text className="fs-14 w-30 text-start text-dark">
+       <div className="d-flex justify-content-around align-items-center">
+       <Form.Text className="fs-14 text-start text-dark max_w_20" >
           Invite other non - Associate Network Members
         </Form.Text>
         <Form.Text>
-          <AddCircleOutlineIcon />
+          <AddCircleOutlineIcon onClick={onClick} />
         </Form.Text>
+       </div>
       </div>
       <Container>
         <Row className="justify-content-center mt-3 filter-img">

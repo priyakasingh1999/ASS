@@ -13,6 +13,9 @@ export const addpage=(title,description)=>{
 
 }
 export const getpage=()=>{
+    axios.post('https://assoc.studiomyraa.com/api/add-comment',{session_id:4,comment:"nicergrgr"}).then((data)=>{
+    console.log(data.data);
+})
     return axios.get('https://assoc.studiomyraa.com/api/view_page')
     .then((data)=>{
         return data.data.data.data
@@ -36,3 +39,6 @@ export const deletepage=(id)=>{
     return data
   })
 }
+
+
+

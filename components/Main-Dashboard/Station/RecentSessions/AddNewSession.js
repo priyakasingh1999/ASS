@@ -40,8 +40,8 @@ function AddNewSessionModal(props) {
   const [content, setContent] = useState("");
   const {sessionform,setsessionform} = useContext( Sessionform);
   const{ modalShow,id}=sessionform
-  
-                
+  const[stattion_id,setstaion_id]=useState(0)
+               console.log(id,"newchckkkkk"); 
   console.log(sessionform);
   const [selectbox, setselectbox] = useState(false);
   const [file, setfile] = useState(false);
@@ -57,7 +57,9 @@ function AddNewSessionModal(props) {
   
   const Handlesubmit=(e)=>{
     e.preventDefault()
-    
+    if(id){
+      setstaion_id(id.id)
+    }
  if(addsession){
   const{textbox,filedata}=addsession
   
@@ -68,6 +70,7 @@ function AddNewSessionModal(props) {
     const{associates,stationname
     }=id
     formdata.append("station", stationname);
+    formdata.append("station_id", stattion_id);
     associates.map((res,index)=>{
       formdata.append(`name[${index}]`, res.name)
       formdata.append(`mail[${index}]`, res.mail)

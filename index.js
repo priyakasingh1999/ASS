@@ -7,11 +7,17 @@ import reportWebVitals from './reportWebVitals';
 import Iconprovider from './components/Context/Sideicon';
 import Count from './components/Context/Count';
 import Discussionapi from './components/Context/Discussionapi';
+import Auth from './components/Context/Auth';
+import Alertcontext from './Context/Alertcontext';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
 <div>
+    <Alertcontext>
+    <Auth>
     <Discussionapi>
 <Count>
    <Iconprovider>
@@ -23,6 +29,8 @@ root.render(
     </Iconprovider>
     </Count>
     </Discussionapi>
+    </Auth>
+    </Alertcontext>
 </div>
 );
 

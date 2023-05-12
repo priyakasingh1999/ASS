@@ -7,8 +7,8 @@ const AddStation = () => {
   console.log(formvalue);
   return (
     <Form.Group className="mb-3" controlId="formBasicEmail">
-    <div className='d-flex justify-content-between align-items-center'>
-    <Form.Label className='fw-bold text-dark'>Station Name:</Form.Label>
+    <div className='d-lg-flex justify-content-center gap-lg-3 align-items-center'>
+    <Form.Label className='fw-bold text-dark w_full text-start mb-1 mb-lg-0 fs-14'>Station Name:</Form.Label>
     <Form.Control type='text' placeholder="Enter Station Name" value={StationName}   onChange={(e)=>setformvalue({...formvalue,StationName:e.target.value})} className='w-80'></Form.Control>
     </div>
     <Form.Text className="text-danger fs-13">

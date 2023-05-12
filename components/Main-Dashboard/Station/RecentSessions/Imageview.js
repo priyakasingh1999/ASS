@@ -1,29 +1,20 @@
 import React, { useEffect, useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { ImageList, ImageListItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Divider, TextareaAutosize } from "@mui/material";
 import Commentlist from "./Commentlist";
 import AddIcon from "@mui/icons-material/Add";
 import DangerousIcon from "@mui/icons-material/Dangerous";
-import Collapse from '@mui/material/Collapse';
+import Collapse from "@mui/material/Collapse";
+import { commentstore } from "../../../../Api/Sessioncomment/Commentstore";
+import { createGlobalStyle } from "styled-components";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 800,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 2,
-  height: 500,
-  borderRadius: 2,
-};
 
-export default function Imageview({ setOpen, open, Imageviewfile }) {
+
+export default function Imageview({ setOpen, open, Imageviewfile, ses_id }) {
   const [viewcomment, setviewcomment] = useState(false);
   let filename = Imageviewfile.split(".");
   let newfile = filename[1];
@@ -52,8 +43,18 @@ export default function Imageview({ setOpen, open, Imageviewfile }) {
     updatedComments.splice(index, 1);
     setComments(updatedComments);
   };
+  const commentsubmit = (e) => {
+    e.preventDefault();
+    commentstore(ses_id, currentComment).then((data) => {
+      if (data) {
+        alert(data.message);
+        setCurrentComment("");
+      }
+    });
+  };
   return (
     <div>
+      
       <Modal
         keepMounted
         open={open}
@@ -65,107 +66,124 @@ export default function Imageview({ setOpen, open, Imageviewfile }) {
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#000000a3",
+         
         }}
       >
-        <Box sx={{ position: "relative", width: "70%", height: "90%" }}>
-          <div>
-            <Box
-              sx={{
-                position: "relative",
-                display: "flex",
-                justifyContent: "start",
-             
-              }}
-            >
-              {newfile === "pdf" ? (
-                <iframe
-                  src={`https://assoc.studiomyraa.com/public/uploads/images/${Imageviewfile}`}
-                  width="780"
-                  height="400"
-                />
-              ) : (
-                <>
-                  {" "}
+        <Box className="cus_size">
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              
+            }}
+          >
+            {newfile === "pdf" ? (
+              <iframe
+                src={`https://assoc.studiomyraa.com/public/uploads/images/${Imageviewfile}`}
+                width="100% "
+                height="100%"
+              />
+            ) : (
+              <ImageList cols={1} sx={{width:"100%",height:"100%" }}>
+                <ImageListItem className="img_size">
                   <img
                     src={`https://assoc.studiomyraa.com/public/uploads/images/${Imageviewfile}`}
                     alt="image"
-                    style={{ width: "100%", height: "33em" }}
                     onClick={(e) => handleCommentSubmit(e)}
+                    className="w-100 h-100"
                   />
-                </>
-              )}
-              <Box
+                </ImageListItem>
+              </ImageList>
+            )}
+            <Box
+              sx={{
+                position: "absolute",
+                top: "2px",
+                left:"5px",
+                bottom:0
+              }}
+            >
+              <AddIcon
+                onClick={() => setviewcomment(true)}
                 sx={{
-                  position: "absolute",
-                 
-                  height: "100%",width:'40%'
+                  display: "inline",
+                  color: "#fff",
+                  backgroundColor: "#1688ca",
+                  borderRadius: "50%",
                 }}
-              >
-                 <AddIcon
-                    onClick={()=>setviewcomment(true)}
+              />
+
+              {
+                <Collapse
+                  in={viewcomment}
+                  orientation="vertical"
+                  style={{ transitionTimingFunction: "linear"}}
+                >
+                  <Box sx={{ backgroundColor: "#000000a3", height: "100%"}}>
+                    <Box
                       sx={{
-                        display:'inline',
-                        position:'absolute', top:'2%',left:'4%',
-                        color: "#fff",
-                        backgroundColor: "#1688ca",
-                        borderRadius: "50%",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        padding: "10px",
+                        
                       }}
-                    />
-               
-            {
-          
-              <Collapse in={viewcomment}  orientation="vertical"  style={{transitionTimingFunction:'linear' }}
-             >
-              <Box sx={{   backgroundColor: "#000000a3",height:'100%'
-              
-           }}>
-            
-                 <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      padding: "10px",
-                    }}
-                  >
-                 <Box></Box>
-                   
-                    <Typography variant="span" sx={{ color: "#fff" }}>
-                      {" "}
-                      comment
-                    </Typography>
-                    <DangerousIcon
-                    onClick={()=>setviewcomment(false)}
+                    >
+                      <Box></Box>
+
+                      <Typography variant="span" sx={{ color: "#fff" }}>
+                        comment
+                      </Typography>
+                      <DangerousIcon
+                        onClick={() => setviewcomment(false)}
+                        sx={{
+                          color: "#fff",
+                          borderRadius: "50%",
+                          fontSize: "30px",
+                        }}
+                      />
+                    </Box>
+                    <Box
                       sx={{
-                        color: "#fff",
-                        borderRadius: "50%",
-                        fontSize: "30px",
+                        borderBottom: "1px solid #fff",
+                        marginBottom: "5px",
                       }}
-                    />
-                  </Box>  
-                  <Box sx={{borderBottom:'1px solid #fff',marginBottom:'5px'}}></Box>
-              <form onSubmit={handleCommentSubmit}  style={{display:'flex',justifyContent:'center',gap:"20px"}}>
-                <label>
-                
-                  <input
-                 style={{padding:"5px  10px",borderRadius:'10px'}}
-                    type="text"
-                    value={currentComment}
-                    onChange={handleCommentChange}
-                  />
-                </label>
-                <button type="submit" style={{ padding:"5px  10px",borderRadius:'10px'}}>
-                  Add
-                </button>
-              </form>
-              <Box sx={{borderBottom:'1px solid #fff',margin:'14px 30px',}}></Box>
-              <Commentlist comments={comments} />
-             
+                    ></Box>
+                    <form
+                      onSubmit={handleCommentSubmit}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        gap: "20px"
+                      }}
+                    >
+                      <label>
+                        <input
+                          style={{ padding: "5px  10px", borderRadius: "10px" }}
+                          type="text"
+                          value={currentComment}
+                          onChange={handleCommentChange}
+                        />
+                      </label>
+                      <button
+                        onClick={commentsubmit}
+                        style={{ padding: "5px  10px", borderRadius: "10px" }}
+                      >
+                        Add
+                      </button>
+                    </form>
+                    <Box
+                      sx={{
+                        borderBottom: "1px solid #fff",
+                        margin: "14px 30px",
+                        maxHeight:"50px"
+                      }}
+                    ></Box>
+                    <Commentlist ses_id={ses_id} />
+                  </Box>
+                </Collapse>
+              }
             </Box>
-            </Collapse>
-            }
-              </Box>
-            </Box>
-          </div>
+          </Box>
         </Box>
       </Modal>
     </div>
