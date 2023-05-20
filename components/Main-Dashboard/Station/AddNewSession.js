@@ -9,9 +9,8 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 800,
     bgcolor: 'background.paper',
-    boxShadow: 24,
+    boxShadow: 24
   };
 
 const AddNewSession = ({setAddSession,addsession}) => {
@@ -23,6 +22,7 @@ const AddNewSession = ({setAddSession,addsession}) => {
   onClose={()=>{setAddSession(false)}}
   aria-labelledby="modal-modal-title"
   aria-describedby="modal-modal-description"
+  className='mx-2'
   >
   <Grid container sx={style}>
   <Grid item ={12} sx={{width:"100%"}}>

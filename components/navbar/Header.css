@@ -246,6 +246,7 @@ header .img-fluid{
 	width: 100%;
 	position: relative;
 	padding: 5px 10px;
+	flex-wrap: wrap;
 }
 .dropdown-menu li{
 	line-height: 22px;
@@ -399,12 +400,12 @@ header .img-fluid{
 	color: #0663a7;
 	vertical-align: 0rem;
 }
-th , td{
+.cus th , .cus td{
 	/* padding: 10px; */
 	text-align: center !important;
 	padding: 5px 0px;
 }
-th{
+.cus th{
 	background-color: #0663a7;
 	color: #fff;
 	text-transform: uppercase;

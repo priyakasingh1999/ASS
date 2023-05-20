@@ -55,6 +55,7 @@ const AddSessionAssociate = () => {
                   </Typography>
                 </Box>
                 <DropDown
+                
                   border="1px solid black"
                   bgcolor="#fff"
                   color="#000"

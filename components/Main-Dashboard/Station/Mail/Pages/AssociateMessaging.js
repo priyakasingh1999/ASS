@@ -40,7 +40,7 @@ const AssociateMessaging = () => {
     <Container maxWidth="lg" sx={{ mt: 3, p: { xs: 0 } }}>
         
       <Grid container sx={{justifyContent:"center"}}>
-      <Grid item xs={11} sx={{ position: "relative", mb: "7px" }}>
+      <Grid item xs={12} md={11} sx={{ position: "relative", mb: "7px" }}>
               <InfoSubHead
                 name="Associate Messaging"
                 backgroundColor={"#1688ca"}

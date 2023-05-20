@@ -40,6 +40,7 @@ const DirectSessions = () => {
           {search && (
             <Collapse orientation="horizontal" collapsedSize={40}>
             <DropDown
+             bgcolor={"#1688ca"}
               top={"46.5px"}
               name1="Manage Folders"
               name2={"Add Session"}

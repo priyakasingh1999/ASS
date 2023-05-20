@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import JoditEditor from "jodit-react";
 import { Link, useParams } from 'react-router-dom';
-import { editpage } from '../../Api/Pages/Page';
+import { editpage } from '../../../Api/Pages/Page';
 import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
 import { height } from '@mui/system';

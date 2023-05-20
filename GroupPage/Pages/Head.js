@@ -10,11 +10,11 @@ const Head = ({setRecentSession}) => {
   return (
     <>
     <Container maxWidth="lg" sx={{backgroundColor:"#1688ca", color:"#fff",position:"relative"}}>
-    <Grid container>
+    <Grid container sx={{py:1}}>
         <Grid item xs={4}> </Grid>
-        <Grid item xs={4}> 
+        <Grid item xs={4} className='my-auto'> 
         <Box sx={{textAlign:"center"}}>
-        <Typography variant='subtitle1'>Recent Sessions</Typography>
+        <Typography sx={{fontSize:{xs:"14px",lg:"16px"}}}>Recent Sessions</Typography>
         </Box>
         </Grid>
         <Grid item xs={4}> 

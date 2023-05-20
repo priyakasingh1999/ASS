@@ -127,10 +127,11 @@ const MyMessage = () => {
                         position: "absolute",
                         mt: 6,
                         top: "100%",
-                        left: "12%",
+                        left: "20%",
                         zIndex: 999,
                         border: "1px solid #C3C3C3",
                         bgcolor: "#fff",
+                        zIndex:9999999
                       }}
                     >
                       <Search

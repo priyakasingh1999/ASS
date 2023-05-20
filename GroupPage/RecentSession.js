@@ -7,16 +7,15 @@ import { Box, Container, Grid } from "@mui/material";
 const RecentSession = ({setRecentSession}) => {
   return (
     <>
-     
-        <Grid container sx={{minWidth:"1110px"}}>
-          <Grid xs={12} sx={{backgroundColor:"#fff",minHeight:"470px"}}>
+        <Grid container>
+          <Grid item xs={12} sx={{backgroundColor:"#fff",minHeight:"470px"}}>
             <Grid container sx={{alignItems:"left" , justifyContent:"left"}}>
-              <Grid xs={12} sx={{padding:"0px"}}>
+              <Grid item xs={12} sx={{padding:"0px"}}>
                 <Box>
                   <Head setRecentSession={setRecentSession}/>
                 </Box>
               </Grid>
-              <Grid xs={12}>
+              <Grid item xs={12}>
                 <Box sx={{borderBottom:"4px solid #dee7f5"}}>
                   <Content />
                 </Box>
@@ -24,7 +23,6 @@ const RecentSession = ({setRecentSession}) => {
             </Grid>
           </Grid>
         </Grid>
-    
     </>
   );
 };

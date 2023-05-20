@@ -19,6 +19,7 @@ import Leadership from "./Leadership";
 import { Icon } from "../../../Context/Sideicon";
 import ColorSelection from "../../../../NewUser/ColorSelection";
 import { Clickcontaxt } from "../../../Context/DropdownData";
+import Notifications from '../../../../NewUser/Notifications'
 
 
 const MyStation = () => {
@@ -68,8 +69,7 @@ console.log(width)
     <Container className="mt-3 mb-0">
       { notifiopen &&
         <div style={{position:"fixed",top:"10%",left:0,bottom:0,bgcolor:"#000",zIndex:"999999",height:"600px"}}>
-          {/* <h1>Priyanka</h1> */}
-          {/* <Notifications/> */}
+          <Notifications/>
         </div>
       }
       { coloropen &&

@@ -48,6 +48,9 @@ const CusStyle = createGlobalStyle`
     font-size: 37px;
     color: black;
 }
+.slick-next {
+  right: 11px;
+}
 
 
 `;
@@ -80,7 +83,7 @@ const DirectSession = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 5,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -88,7 +91,7 @@ const DirectSession = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 5,
           slidesToScroll: 1,
         },
       },
@@ -98,42 +101,54 @@ const DirectSession = () => {
   const styleicon = { width: "20px", height: "20px" };
 
   return (
-    <Container maxWidth="lg">
-      {recentsession &&
-           <Box sx={{position: "fixed",
+
+    <>
+    {recentsession &&
+           <Box
+           className="widhSmall"
+           sx={{position: "fixed",
            top: "50%",
            transform: "translate(-50% , -50%)",
            zIndex: 999,
            left: "50%",
            mt:4,
+           minWidth:{xs:550,sm:650,md:"670px"},
            boxShadow:
              "2px 2px 2px rgba(0,0,0,.4),-2px -2px 2px rgba(0,0,0,.4)",}}>
              <RecentSession setRecentSession={setRecentSession}/>
            </Box>
       }
       {addsession &&
-           <Box sx={{position: "fixed",
+           <Box className="widhSmall" sx={{position: "fixed",
            top: "50%",
+           left: "50%",
            transform: "translate(-50% , -50%)",
            zIndex: 999,
-           left: "50%",
+           minWidth:{xs:550,sm:650,md:"670px"},
            mt:4,
            boxShadow:
              "2px 2px 2px rgba(0,0,0,.4),-2px -2px 2px rgba(0,0,0,.4)",}}>
              <AddNewSession setAddSession={setAddSession} addsession={addsession}/>
            </Box>
       }
+   
+    
+      
+     
+      
+     <Container maxWidth="lg" sx={{px:{xs:2,sm:"62px",md:"40px",lg:5}}} className="width_padding">
+     
       <CusStyle />
-      <Grid container sx={{ p: 2 }}>
-        <Grid item xs={2} sx={{ bgcolor: "rgb(244, 244, 244)" }}>
-          <Grid container>
+     <Grid container sx={{pt:2,mb:5}}>
+        <Grid item lg={2} xs={12} sm={12} sx={{ bgcolor: "rgb(244, 244, 244)" }}>
+          <Grid container sx={{borderBottom:{xs:"1px solid red",lg:"none"}}}>
             <Grid
               item
-              xs={8}
+              lg={8}
+              xs={11}
               sx={{
                 borderRight: "6px solid rgb(222, 231, 245)",
                 textAlign: "center",
-                p: 1,
               }}
             >
               <Box
@@ -158,7 +173,8 @@ const DirectSession = () => {
             </Grid>
             <Grid
               item
-              xs={3}
+              lg={3}
+              xs={1}
               sx={{
                 borderRight: "6px solid rgb(222, 231, 245)",
                 textAlign: "center",
@@ -215,8 +231,8 @@ const DirectSession = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={10} sx={{ bgcolor: "rgb(244, 244, 244)" }}>
-          <Box sx={{ height: "100%" }}>
+        <Grid item lg={10} xs={12} sm={12} sx={{ bgcolor: "rgb(244, 244, 244)" }}>
+          <Box sx={{ height: "100%",py:{xs:1}}}>
             <Slider
               {...silkdata}
               style={{ height: "100%", display: "flex", alignItems: "center" }}
@@ -322,7 +338,10 @@ const DirectSession = () => {
           </Box>
         </Grid>
       </Grid>
-    </Container>
+     </Container>
+     
+   
+    </>
   );
 };
 export default DirectSession;

@@ -28,13 +28,13 @@ export const Admin = () => {
           <div className="row">
             <div className="col-md-12">
               <ul className="admin-menu-listing">
-                {data.map((priyanka) => {
-                  const { id, name, img } = priyanka;
+                {data.map((data) => {
+                  const { id, name, img,tod } = data;
                   return (
                     <li key={id}>
                       <a href="#">
                         <div className="menu-icon p-2">
-                          <Link to={`${name}`}>
+                          <Link to={`${tod}`}>
                             <img src={img} className="img-fluid" alt={name} />
                           </Link>
                           <div className="icon-name">{name}</div>

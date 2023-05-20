@@ -3,47 +3,56 @@ export const data=[
     {
         id:1,
         img:"img/menu1.png",
-        name:"Pages"
+        name:"Pages",
+        tod:"/admin/pages"
     },
     {
         id:2,
         img:"img/menu2.png",
-        name:"Stations"
+        name:"Stations",
+        tod:"/station"
     },
     {
         id:3,
         img:"img/menu3.png",
-        name:"User Profile"
+        name:"User Profile",
+        tod:"/admin/user-profile"
     },
     {
         id:4,
         img:"img/menu4.png",
-        name:"Enable Programs"
+        name:"Enable Programs",
+        tod:"/admin/enable-programs"
     },
     {
         id:5,
         img:"img/menu5.png",
-        name:"Station & Discussions"
+        name:"Station & Discussions",
+        tod:"/admin/discussion-board"
     },
     {
         id:6,
         img:"img/menu6.png",
-        name:"Text Messages"
+        name:"Text Messages",
+        tod:"/admin/text-alert"
     },
     {
         id:7,
         img:"img/menu7.png",
-        name:"Project Boards"
+        name:"Project Boards",
+        tod:"/DashboardBoard"
     },
     {
         id:8,
         img:"img/menu8.png",
-        name:"Change Password"
+        name:"Change Password",
+        tod:"/admin/change-password"
     },
     {
         id:9,
         img:"img/menu9.png",
-        name:"New User Registration"
+        name:"New User Registration",
+        tod:"/admin/new-user-registration"
     },
     {
         id:10,

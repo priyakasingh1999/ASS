@@ -9,9 +9,9 @@ import MyStationDashboard from './components/Main-Dashboard/Station/MyStationDas
 import Profile from './components/AssociatesProfile/Profile';
 import Login from './components/Authorization/Login';
 import Cookies from 'js-cookie';
-import Pages from './components/Pages/Pages';
-import { Addpage } from './components/Pages/Addpage';
-import { Editpage } from './components/Pages/Editpage';
+import Pages from './components/Admin/Pages/Pages';
+import {Addpage} from './components/Admin/Pages/Addpage';
+import { Editpage } from './components/Admin/Pages/Editpage';
 import{Allgroups }from './Station/Allgroups';
 import Discussion from './Station_Discussion/Discussion';
 import Singlediscuss from './Station_Discussion/Singlediscuss';
@@ -73,6 +73,13 @@ import Notifications from './NewUser/Notifications';
 import NewIndex from './NewUser/NewIndex';
 import ColorSelection from './NewUser/ColorSelection';
 import DropdownData from './components/Context/DropdownData';
+import  Userprofile from './components/Admin/UserProfile/UserProfile';
+import Enable from './components/Admin/EnablePrograms/Enable';
+import UserprofileView from './components/Admin/UserProfile/ProfileView';
+import AdminDiscussion from './components/Admin/StationDiscussion/AdminDiscussion';
+import CreateTextMesg from './components/Admin/CreateText/CreateTaxMesg';
+import ChangePassword from './components/Admin/ChangePassword/ChngPassword';
+import NewUserReg from './components/Admin/Registration/NewUserReg';
 
 
 
@@ -171,6 +178,14 @@ function App() {
         <Route path="/notification" element={<Notifications/>}/>
         <Route path="/add-new-user" element={<NewIndex/>}/>
         <Route path="/colorselection" element={<ColorSelection/>}/>
+        <Route path="/admin/user-profile" element={<Userprofile/>}/>
+        <Route path="/admin/enable-programs" element={<Enable/>}/>
+        <Route path="/admin/user-profile/view" element={<UserprofileView/>}/>
+        <Route path="/admin/discussion-board" element={<AdminDiscussion/>}/>
+        <Route path="/admin/text-alert" element={<CreateTextMesg/>}/>
+        <Route path="/admin/change-password" element={<ChangePassword/>}/>
+        <Route path="/admin/new-user-registration" element={<NewUserReg/>}/>
+        
         {/* <Route path="/Sendboard" element={<Sendboard/>}/> */}
        
      

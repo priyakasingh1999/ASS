@@ -7,7 +7,7 @@ const Content = () => {
   return (
     <Container maxWidth="lg" sx={{ backgroundColor: "#fff",p:1,border:"2px solid transparent",":hover":{border:"2px solid #1688ca" , backgroundColor:"#E8F0F8"} }}>
       <Grid container >
-        <Grid item xs={3}>
+        <Grid item xs={12} lg={3} sx={{mb:{xs:1,lg:0}}}>
           <Stack direction="row" spacing={1}>
             <Avatar src="./img/john.jpg"  />
             <Stack>
@@ -25,8 +25,8 @@ const Content = () => {
             </Stack>
           </Stack>
         </Grid>
-        <Grid item xs={9}>
-          <Stack direction="column" spacing={5}>
+        <Grid item xs={12} lg={9}>
+          <Stack direction="column" spacing={{xs:2,lg:5}}>
             <Box>
               <Typography variant="subtitle2" sx={{color:"#000"}}>
                 This new Medical Records technology will be part of a capital
