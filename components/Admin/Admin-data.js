@@ -57,27 +57,32 @@ export const data=[
     {
         id:10,
         img:"img/menu10.png",
-        name:"Change User Name"
+        name:"Change User Name",
+        tod:"/admin/change-username"
     },
     {
         id:11,
         img:"img/menu11.png",
-        name:"Login History"
+        name:"Login History",
+        tod:"/admin/login-history"
     },
     {
         id:12,
         img:"img/menu12.png",
-        name:"Login Attempts"
+        name:"Login Attempts",
+        tod:"/admin/login-attempt-history"
     },
     {
         id:13,
         img:"img/menu13.png",
-        name:"Company Logo"
+        name:"Company Logo",
+        tod:"/admin/company-logo"
     },
     {
         id:14,
         img:"img/menu14.png",
-        name:"Website Hits"
+        name:"Website Hits",
+        tod:"/admin/websitehits"
     },
     {
         id:15,

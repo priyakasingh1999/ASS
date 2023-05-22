@@ -80,6 +80,11 @@ import AdminDiscussion from './components/Admin/StationDiscussion/AdminDiscussio
 import CreateTextMesg from './components/Admin/CreateText/CreateTaxMesg';
 import ChangePassword from './components/Admin/ChangePassword/ChngPassword';
 import NewUserReg from './components/Admin/Registration/NewUserReg';
+import ChngUsername from './components/Admin/ChangeUsername/ChngUsername';
+import History from './components/Admin/LoginHistory/History';
+import LoginAttemps from './components/Admin/LoginAttempt/LoginAttempts';
+import Logo from './components/Admin/CompanyLogo/Logo';
+import WebsiteH from './components/Admin/WebsiteHits/WebsiteH';
 
 
 
@@ -185,6 +190,11 @@ function App() {
         <Route path="/admin/text-alert" element={<CreateTextMesg/>}/>
         <Route path="/admin/change-password" element={<ChangePassword/>}/>
         <Route path="/admin/new-user-registration" element={<NewUserReg/>}/>
+        <Route path="/admin/change-username" element={<ChngUsername/>}/>
+        <Route path="/admin/login-history" element={<History/>}/>
+        <Route path="/admin/login-attempt-history" element={<LoginAttemps/>}/>
+        <Route path="/admin/company-logo" element={<Logo/>}/>
+        <Route path="/admin/websitehits" element={<WebsiteH/>}/>
         
         {/* <Route path="/Sendboard" element={<Sendboard/>}/> */}
        
